@@ -1,0 +1,249 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9103,        241]
+NotebookOptionsPosition[      8781,        225]
+NotebookOutlinePosition[      9129,        240]
+CellTagsIndexPosition[      9086,        237]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Simple", " ", "Supersition", " ", "Lab"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"y", "[", 
+    RowBox[{"A_", ",", "k_", ",", "dir_", ",", "x_", ",", "t_"}], "]"}], ":=",
+    " ", 
+   RowBox[{"A", " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"k", " ", 
+      RowBox[{"(", 
+       RowBox[{"x", "-", 
+        RowBox[{"dir", " ", "v", " ", "t"}]}], ")"}]}], "]"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"yr", "[", 
+     RowBox[{
+     "A1_", ",", "k1_", ",", "dir1_", ",", "A2_", ",", "k2_", ",", "dir2_", 
+      ",", "x_", ",", "t_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"y", "[", 
+      RowBox[{"A1", ",", "k1", ",", "dir1", ",", "x", ",", "t"}], "]"}], "+", 
+     RowBox[{"y", "[", 
+      RowBox[{"A2", ",", "k2", ",", "dir2", ",", "x", ",", "t"}], "]"}]}]}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "Parameters", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xmax", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pix1", "[", 
+   RowBox[{"A1_", ",", "k1_", ",", "dir1_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"y", "[", 
+     RowBox[{"A1", ",", "k1", ",", "dir1", ",", "x", ",", "t"}], "]"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "xmax"}], "}"}], ",", " ", 
+    RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pix2", "[", 
+   RowBox[{"A2_", ",", "k2_", ",", "dir2_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"4", "+", 
+     RowBox[{"y", "[", 
+      RowBox[{"A2", ",", "k2", ",", "dir2", ",", "x", ",", "t"}], "]"}]}], 
+    ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "xmax"}], "}"}], ",", " ", 
+    RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pixr", "[", 
+    RowBox[{
+    "A1_", ",", "k1_", ",", "dir1_", ",", "A2_", ",", "k2_", ",", "dir2_", 
+     ",", "t_"}], "]"}], ":=", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"10", "+", 
+      RowBox[{"yr", "[", 
+       RowBox[{
+       "A1", ",", "k1", ",", "dir1", ",", " ", "A2", ",", "k2", ",", "dir2", 
+        ",", "x", ",", "t"}], "]"}]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "xmax"}], "}"}], ",", " ", 
+     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plot", "[", 
+    RowBox[{
+    "A1_", ",", "k1_", ",", "dir1_", ",", "A2_", ",", "k2_", ",", "dir2_", 
+     ",", "t_"}], "]"}], ":=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"pix1", "[", 
+      RowBox[{"A1", ",", "k1", ",", "dir1", ",", "t"}], "]"}], ",", " ", 
+     RowBox[{"pix2", "[", 
+      RowBox[{"A2", ",", "k2", ",", "dir2", ",", "t"}], "]"}], ",", " ", 
+     RowBox[{"pixr", "[", 
+      RowBox[{
+      "A1", ",", "k1", ",", "dir1", ",", "A2", ",", "k2", ",", "dir2", ",", 
+       "t"}], "]"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "xmax"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "18"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Animate", "[", 
+     RowBox[{
+      RowBox[{"plot", "[", 
+       RowBox[{
+       "A1", ",", "k1", ",", "dir1", ",", "A2", ",", "k2", ",", "dir2", ",", 
+        " ", "t"}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "20"}], "}"}]}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"A1", ",", "0", ",", "2"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"A2", ",", "0", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k1", ",", "0", ",", " ", 
+      RowBox[{"16", "\[Pi]"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"k2", ",", "0", ",", 
+      RowBox[{"16", " ", "\[Pi]"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"dir1", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"dir2", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.704559658912015*^9, 3.704560216063753*^9}, {
+   3.704560260574402*^9, 3.704560277762134*^9}, {3.7045603202157965`*^9, 
+   3.7045605492809196`*^9}, {3.704560617029065*^9, 3.704560620560361*^9}, 
+   3.7045607589769993`*^9, {3.704561354406732*^9, 3.704561356187977*^9}, {
+   3.704561465314369*^9, 3.704561465720623*^9}},
+ Background->RGBColor[0.9, 1, 1]],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A1$$ = 2., $CellContext`A2$$ = 
+    1.6600000000000001`, $CellContext`dir1$$ = 
+    1, $CellContext`dir2$$ = -1, $CellContext`k1$$ = 
+    27.34442245684556, $CellContext`k2$$ = 29.75716561480252, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`A1$$], 0, 2}, {
+      Hold[$CellContext`A2$$], 0, 2}, {
+      Hold[$CellContext`k1$$], 0, 16 Pi}, {
+      Hold[$CellContext`k2$$], 0, 16 Pi}, {
+      Hold[$CellContext`dir1$$], {-1, 1}}, {
+      Hold[$CellContext`dir2$$], {-1, 1}}}, Typeset`size$$ = {
+    387., {44., 50.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`A1$3777709$$ = 
+    0, $CellContext`A2$3777710$$ = 0, $CellContext`k1$3777711$$ = 
+    0, $CellContext`k2$3777712$$ = 0, $CellContext`dir1$3777713$$ = 
+    False, $CellContext`dir2$3777714$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`A1$$ = 0, $CellContext`A2$$ = 
+        0, $CellContext`dir1$$ = -1, $CellContext`dir2$$ = -1, \
+$CellContext`k1$$ = 0, $CellContext`k2$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`A1$$, $CellContext`A1$3777709$$, 0], 
+        Hold[$CellContext`A2$$, $CellContext`A2$3777710$$, 0], 
+        Hold[$CellContext`k1$$, $CellContext`k1$3777711$$, 0], 
+        Hold[$CellContext`k2$$, $CellContext`k2$3777712$$, 0], 
+        Hold[$CellContext`dir1$$, $CellContext`dir1$3777713$$, False], 
+        Hold[$CellContext`dir2$$, $CellContext`dir2$3777714$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Animate[
+        $CellContext`plot[$CellContext`A1$$, $CellContext`k1$$, \
+$CellContext`dir1$$, $CellContext`A2$$, $CellContext`k2$$, \
+$CellContext`dir2$$, $CellContext`t], {$CellContext`t, 0, 20}], 
+      "Specifications" :> {{$CellContext`A1$$, 0, 2}, {$CellContext`A2$$, 0, 
+         2}, {$CellContext`k1$$, 0, 16 Pi}, {$CellContext`k2$$, 0, 16 
+         Pi}, {$CellContext`dir1$$, {-1, 1}}, {$CellContext`dir2$$, {-1, 1}}},
+       "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{438., {169., 175.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.704560551046568*^9, 3.7045606213885098`*^9, 
+  3.704560759367613*^9, 3.704560847243739*^9, 3.7045613569536266`*^9, 
+  3.70456146664251*^9, 3.7045615644894505`*^9}]
+}, Open  ]]
+},
+WindowSize->{1292, 725},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5078, 141, 427, "Input"],
+Cell[5661, 165, 3104, 57, 394, "Output"]
+}, Open  ]]
+}
+]
+*)
+
